@@ -23,7 +23,7 @@ public class MembersRepository {
     public List<Member> findMembersByRegistrationYear(int year) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        Query query = entityManager.createQuery("SELECT m.name FROM Member m " +
+        Query query = entityManager.createQuery("SELECT m FROM Member m " +
                 "WHERE YEAR(m.membershipDate) = :year " +
                 "AND m.borrowedBooks IS EMPTY");
         query.setParameter("year", year);
